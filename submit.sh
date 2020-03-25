@@ -62,10 +62,11 @@ case $option in
 
     0.1.2) echo "Generate Condor jobs on data ---- 1..." 
 	       cd run/pid_eff/gen_script
-	       ./make_jobOption_file_Data_pid_eff.sh 50
+	       ./make_jobOption_file_Data_pid_eff.sh 500
 	       cd /besfs/groups/cal/dedx/$USER/bes/pid_eff_check/run/jobs_text/data
 	       cp -r jobOptions_pid_eff_data-1.txt jobOptions_pid_eff_data-0.txt
-           sed -i "s/ApplicationMgr\.EvtMax = -1/ApplicationMgr\.EvtMax = 5000/g" jobOptions_pid_eff_data-0.txt
+           sed -i "s/ApplicationMgr\.EvtMax = -1/ApplicationMgr\.EvtMax = 50/g" jobOptions_pid_eff_data-0.txt
+           sed -i "s/pid_eff_data-1\.root/pid_eff_data-0\.root/g" jobOptions_pid_eff_data-0.txt
 	       ;;
 
     0.1.3) echo "Test for data" 
@@ -86,12 +87,13 @@ case $option in
 	       cd run/jobs_text/data
            find . -name "*.out.*" | xargs rm
            find . -name "*.err.*" | xargs rm
-		   boss.condor -g physics -n 50 jobOptions_pid_eff_data-%{ProcId}.txt
+		   boss.condor -g physics -n 500 jobOptions_pid_eff_data-%{ProcId}.txt
 	       ;;
 
     0.1.5) echo "Synthesize data root files..."
            cd run/rootfile/data
            rm -rf pid_eff_data.root
+           rm -rf pid_eff_data-0.root
            hadd pid_eff_data.root *.root
 	       ;;
 

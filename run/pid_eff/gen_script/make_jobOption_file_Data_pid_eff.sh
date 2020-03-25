@@ -8,7 +8,7 @@ mkdir -p $ROOT_SaveDir
 rm -r $JobText_SaveDir/*txt
 rm -r $ROOT_SaveDir/*.root
 
-for ((num = 1; num <= $NUM_UP; num++))
+for ((num = 0; num <= $NUM_UP; num++))
 do
     file_list=data_pid_eff_5G-${num}.txt
     rootfile=pid_eff_data-${num}.root
