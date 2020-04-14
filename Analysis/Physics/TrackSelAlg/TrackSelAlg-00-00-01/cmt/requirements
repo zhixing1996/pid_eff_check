@@ -1,0 +1,14 @@
+package TrackSelAlg
+
+use BesPolicy BesPolicy-*
+use GaudiInterface GaudiInterface-* External
+
+use BesROOT      BesROOT-00-*  External
+use ReconEvent   ReconEvent-*  Event
+use ParticleID   ParticleID-*  Analysis
+use VertexFit    VertexFit-*   Analysis
+use TrkPreSlt    TrkPreSlt-*   Analysis
+use EvtPreSlt    EvtPreSlt-*   Analysis
+
+apply_pattern component_library
+library TrackSelAlg  *.cxx

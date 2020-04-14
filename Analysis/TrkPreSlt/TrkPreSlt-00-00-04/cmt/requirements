@@ -1,0 +1,25 @@
+package TrkPreSlt
+author  Bo Zheng <zhengb@mail.ihep.ac.cn> 
+
+branches cmt src TrkPreSlt
+
+use    BesPolicy           BesPolicy-01-*
+use    GaudiInterface      GaudiInterface-*   External
+use    BesCLHEP            BesCLHEP-*         External
+use    DstEvent            DstEvent-*         Event
+use    EventModel          EventModel-*       Event
+use    EvtRecEvent         EvtRecEvent-*      Event
+use    ParticleID          ParticleID-*       Analysis
+use    EventTag            EventTag*          Event
+use    McTruth             McTruth-*          Event
+use    VertexFit           VertexFit-*        Analysis
+use    TrkPreSlt           TrkPreSlt-*        Analysis
+
+#Linker library
+library TrkPreSlt  *.cxx 
+
+apply_pattern installed_linkopts
+apply_pattern package_linkopts
+apply_pattern package_stamps
+apply_pattern ld_library_path
+apply_pattern package_shlibflags

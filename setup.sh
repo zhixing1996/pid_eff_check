@@ -38,10 +38,10 @@ case $option in
                      cmt config
                      source setup.sh
                      cd ..
-                     # TestRelease: go to /afs/ihep.ac.cn/bes3/offline/Boss/7.0.5/TestRelease/TestRelease-00-00-90 to check TestRelease patch
-                     mkdir -p TestRelease/TestRelease-00-00-90
-                     cd TestRelease/TestRelease-00-00-90
-                     cp -r /afs/ihep.ac.cn/bes3/offline/Boss/7.0.5/TestRelease/TestRelease-00-00-90/cmt .
+                     # TestRelease: go to /afs/ihep.ac.cn/bes3/offline/Boss/7.0.5/TestRelease/TestRelease-00-00-91 to check TestRelease patch
+                     mkdir -p TestRelease/TestRelease-00-00-91
+                     cd TestRelease/TestRelease-00-00-91
+                     cp -r /afs/ihep.ac.cn/bes3/offline/Boss/7.0.5/TestRelease/TestRelease-00-00-91/cmt .
                      cd cmt
                      cmt br cmt config
                      cmt br gmake
@@ -53,13 +53,23 @@ case $option in
                 source setupCMT.sh
                 cmt config
                 source setup.sh
-                cd ../TestRelease/TestRelease-00-00-90/cmt
+                cd ../TestRelease/TestRelease-00-00-91/cmt
                 source setup.sh
                 cd /besfs/groups/cal/dedx/$USER/bes/pid_eff_check
-                if [ ! -f "./Analysis/Physics/TestpiAlg/TestpiAlg-00-00-01/cmt/setup.sh" ]; then
-                    echo "Please use ./build.sh 0.1.1 command to compile TESTPIALGROOT analyzer and setup it..."
+                if [ ! -f "./Analysis/TrkPreSlt/TrkPreSlt-00-00-04/cmt/setup.sh" ]; then
+                    echo "Please use ./build.sh 0.0.1 command to compile TRKPRESLT analyzer and setup it..."
                 else 
-                    source ./Analysis/Physics/TestpiAlg/TestpiAlg-00-00-01/cmt/setup.sh
+                    source ./Analysis/EvtPreSlt/EvtPreSlt-00-00-01/cmt/setup.sh
+                fi
+                if [ ! -f "./Analysis/EvtPreSlt/EvtPreSlt-00-00-01/cmt/setup.sh" ]; then
+                    echo "Please use ./build.sh 0.0.2 command to compile EVTPRESLT analyzer and setup it..."
+                else 
+                    source ./Analysis/EvtPreSlt/EvtPreSlt-00-00-01/cmt/setup.sh
+                fi
+                if [ ! -f "./Analysis/Physics/TrackSelAlg/TrackSelAlg-00-00-01/cmt/setup.sh" ]; then
+                    echo "Please use ./build.sh 0.1.1 command to compile TRACKSEL analyzer and setup it..."
+                else 
+                    source ./Analysis/Physics/TrackSelAlg/TrackSelAlg-00-00-01/cmt/setup.sh
                 fi
                 ;;
 
